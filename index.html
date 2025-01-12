@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>陳旻昇個人網站</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "微軟正黑體", sans-serif;
+      }
+      
+      body {
+        background: #f8f9fa;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Header */
+      nav {
+        background: white;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+      }
+
+      .nav-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2563eb;
+      }
+
+      .nav_menu_list {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #2563eb;
+      }
+
+      .btn {
+        background: #2563eb;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background: #1d4ed8;
+      }
+
+      /* Featured Section */
+      .featured-box {
+        display: flex;
+        align-items: center;
+        padding: 4rem 2rem;
+        gap: 2rem;
+      }
+
+      .featured-text {
+        flex: 1;
+      }
+
+      .featured-text-card span {
+        background: #e0e7ff;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: #2563eb;
+        font-weight: 500;
+      }
+
+      .featured-name {
+        margin: 1.5rem 0;
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+
+      .featured-text-info {
+        color: #666;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .social_icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .icon:hover {
+        background: #e2e8f0;
+      }
+
+      /* About Section */
+      .section {
+        padding: 4rem 2rem;
+      }
+
+      .top-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .top-header h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #2563eb;
+      }
+
+      .row {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .col {
+        flex: 1;
+      }
+
+      .about-info h3, 
+      .education h3 {
+        margin-bottom: 1rem;
+        color: #2563eb;
+      }
+
+      .resume-item {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      /* Skills Section */
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .skill {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+
+      .progress-bar-wrap {
+        background: #e2e8f0;
+        height: 10px;
+        border-radius: 5px;
+      }
+
+      .progress-bar {
+        background: #2563eb;
+        height: 100%;
+        border-radius: 5px;
+        transition: width 0.5s;
+      }
+
+      /* Contact Section */
+      .contact-info {
+        background: white;
+        padding: 2rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .contact-info h2 {
+        color: #2563eb;
+        margin-bottom: 1rem;
+      }
+
+      .contact-info p {
+        margin: 0.5rem 0;
+      }
+
+      .form-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .input-field {
+        padding: 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      textarea {
+        width: 100%;
+        height: 150px;
+        padding: 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 5px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      footer {
+        background: #1e293b;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .footer-menu {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        list-style: none;
+        margin: 1rem 0;
+      }
+
+      .footer-menu a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .footer-social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem 0;
+      }
+
+      @media (max-width: 768px) {
+        .featured-box {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .row {
+          flex-direction: column;
+        }
+
+        .nav_menu_list {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav id="header">
+        <div class="nav-logo">
+          <p class="nav-name">Vincent</p>
+        </div>
+        <div class="nav-menu">
+          <ul class="nav_menu_list">
+            <li class="nav_list">
+              <a href="#home" class="nav-link">首頁</a>
+            </li>
+            <li class="nav_list">
+              <a href="#about" class="nav-link">關於我</a>
+            </li>
+            <li class="nav_list">
+              <a href="#skills" class="nav-link">技術</a>
+            </li>
+            <li class="nav_list">
+              <a href="#contact" class="nav-link">聯絡我</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <button class="btn">下載履歷 <i class="fa-regular fa-file-pdf"></i></button>
+        </div>
+      </nav>
+
+      <main class="wrapper">
+        <section class="featured-box" id="home">
+          <div class="featured-text">
+            <div class="featured-text-card">
+              <span>陳旻昇 (Vincent)</span>
+            </div>
+            <div class="featured-name">
+              <p>我是前端工程師</p>
+            </div>
+            <div class="featured-text-info">
+              <p>熱愛網頁開發的前端工程師，專注於打造流暢且美觀的使用者介面，讓每個專案都能完美呈現。</p>
+            </div>
+            <div class="featured-text-btn">
+              <button class="btn">與我聯繫</button>
+            </div>
+            <div class="social_icons">
+              <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+              <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div class="icon"><i class="fa-brands fa-facebook"></i></div>
+              <div class="icon"><i class="fa-brands fa-github"></i></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <div class="top-header">
+            <h1>關於我</h1>
+            <span>熱愛程式開發，持續學習成長</span>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="about-info">
+                <h3>自我介紹</h3>
+                <p>
+                  擅長使用現代前端技術進行開發，包括 React、Vue.js 等框架，並且熟悉 RWD 網頁設計。
+                  在工作中追求程式碼的品質與效能，同時也重視團隊合作與溝通。
+                </p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="education">
+                <h3>教育程度</h3>
+                <div class="resume-item">
+                  <strong>陽明高中</strong>
+                  <p>民國107年（2018年）9月 ~ 民國110年（2021年）6月</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="skills">
+          <div class="top-header">
+            <h1>技術</h1>
+            <span>專業技能與開發工具</span>
+          </div>
+          <div class="skills-container">
+            <div class="skill-item">
+              <span class="skill">
+                <span>HTML</span>
+                <span class="value">90%</span>
+              </span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill">
+                <span>CSS</span>
+                <span class="value">85%</span>
+              </span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill">
+                <span>JavaScript</span>
+                <span class="value">75%</span>
+              </span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill">
+                <span>React</span>
+                <span class="value">70%</span>
+              </span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="top-header">
+            <h1>聯絡我</h1>
+            <span>歡迎討論合作機會</span>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="contact-info">
+                <h2>聯絡資訊</h2>
+                <p><i class="fa-regular fa-envelope"></i> Email: vincent.chen@email.com</p>
+                <p><i class="fa-solid fa-phone"></i> Tel: 0912-345-678</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-control">
+                <div class="form-inputs">
+                  <input type="text" class="input-field" placeholder="姓名">
+                  <input type="text" class="input-field" placeholder="信箱">
+                </div>
+                <div class="text-area">
+                  <textarea placeholder="訊息內容"></textarea>
+                </div>
+                <div class="form-button">
+                  <button class="btn">發送訊息 <i class="fa-regular fa-paper-plane"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="footer-menu">
+          <li><a href="#home">首頁</a></li>
+          <li><a href="#about">關於我</a></li>
+          <li><a href="#skills">技術</a></li>
+          <li><a href="#contact">聯絡我</a></li>
+        </ul>
+        <div class="footer-social-icons">
+          <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+          <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+          <div class="icon"><i class="fa-brands fa-facebook"></i></div>
+          <div class="icon"><i class="fa-brands fa-github"></i></div>
+        </div>
+        <div class="bottom-footer">
+          <p>Copyright © 2024 Vincent Chen</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
